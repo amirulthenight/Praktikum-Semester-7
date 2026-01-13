@@ -99,20 +99,23 @@
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-check-circle fa-2x me-3"></i>
                                 <div>
-                                    <h5 class="alert-heading mb-1 fw bold">Berhasil!</h5>
+                                    <h5 class="alert-heading mb-1 fw-bold">Berhasil!</h5>
                                     <p class="mb-0">{{ session('success') }}</p>
                                 </div>
                             </div>
-                            <button type="button" class="btn-close" data-bs
-                                dismiss="alert" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         @endif
 
                         @if(session('error'))
                         <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
-                            <i class="fas fa-exclamation-triangle me-2"></i> {{ session('error') }}
-                            <button type="button" class="btn-close" data-bs
-                                dismiss="alert" aria-label="Close"></button>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <div>
+                                    {{ session('error') }}
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         @endif
 
