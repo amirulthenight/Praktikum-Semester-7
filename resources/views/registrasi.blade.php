@@ -1,4 +1,4 @@
-@extends('public')
+@extends('layouts.public')
 @section('title', 'Registrasi Masyarakat')
 @section('content')
 <div class="container">

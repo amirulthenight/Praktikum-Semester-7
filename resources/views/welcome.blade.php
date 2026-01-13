@@ -1,4 +1,4 @@
-@extends('public')
+@extends('layouts.public')
 @section('title', 'Selamat Datang')
 @section('content')
 <div class="container mb-5">
@@ -12,7 +12,7 @@
                 <a href="{{ route('masyarakat.index') }}" class="btn btn-success btn-lg px-4 me-md-2 fw-bold shadow">
                     <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
                 </a>
-                <a href="" class="btn btn-outline-success btn-lg px-4 fw-bold">
+                <a href="{{ route('login') }}" class="btn btn-outline-success btn-lg px-4 fw-bold">
                     <i class="fas fa-sign-in-alt me-2"></i>Sudah Punya Akun?
                 </a>
             </div>
@@ -31,7 +31,7 @@
         <div class="row g-4">
             <div class="col-md-3">
                 <div class="card h-100 border-0 text-center p-3">
-                    <div class="rounded-circle bg-success text-white mx-auto d-flex alignitems-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <div class="rounded-circle bg-success text-white mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                         <i class="fas fa-user-plus fa-lg"></i>
                     </div>
                     <h5 class="fw-bold">1. Registrasi</h5>
@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card h-100 border-0 text-center p-3">
-                    <div class="rounded-circle bg-success text-white mx-auto d-flex alignitems-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <div class="rounded-circle bg-success text-white mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                         <i class="fas fa-camera fa-lg"></i>
                     </div>
                     <h5 class="fw-bold">2. Foto & Lokasi</h5>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card h-100 border-0 text-center p-3">
-                    <div class="rounded-circle bg-success text-white mx-auto d-flex alignitems-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <div class="rounded-circle bg-success text-white mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                         <i class="fas fa-edit fa-lg"></i>
                     </div>
                     <h5 class="fw-bold">3. Isi Kriteria</h5>
@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card h-100 border-0 text-center p-3">
-                    <div class="rounded-circle bg-success text-white mx-auto d-flex alignitems-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <div class="rounded-circle bg-success text-white mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                         <i class="fas fa-check-double fa-lg"></i>
                     </div>
                     <h5 class="fw-bold">4. Selesai</h5>

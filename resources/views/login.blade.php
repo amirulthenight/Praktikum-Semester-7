@@ -16,26 +16,22 @@
 
                     @if(session('error'))
                     <div class="alert alert-danger border-0 shadow-sm">
-                        <i class="fas fa-exclamation-triangle me-2"></i> {{
-session('error') }}
+                        <i class="fas fa-exclamation-triangle me-2"></i> {{ session('error') }}
                     </div>
                     @endif
                     <form action="{{ route('login.process') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label fw-semibold">NIK</label>
-                            <input type="text" name="nik" class="form-control form-control-lg
-@error('nik') is-invalid @enderror" placeholder="16 Digit NIK" required>
+                            <input type="text" name="nik" class="form-control form-control-lg @error('nik') is-invalid @enderror" placeholder="16 Digit NIK" required>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label fw-semibold">Email Terdaftar</label>
-                            <input type="email" name="email" class="form-control form-control
-lg @error('email') is-invalid @enderror" placeholder="email@contoh.com" required>
+                            <input type="email" name="email" class="form-control form-control lg @error('email') is-invalid @enderror" placeholder="email@contoh.com" required>
                         </div>
 
-                        <button type="submit" class="btn btn-success btn-lg w-100 shadow-sm
-fw-bold">
+                        <button type="submit" class="btn btn-success btn-lg w-100 shadow-smfw-bold">
                             Masuk Ke Panel Lapor
                         </button>
                     </form>

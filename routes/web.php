@@ -2,16 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MasyarakatController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\LaporanController;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Events\Logout;
+
 
 // Rute untuk menampilkan halaman utama (welcome page)
 Route::get('/', function () {
@@ -20,3 +14,21 @@ Route::get('/', function () {
 
 Route::get('/registrasi', [MasyarakatController::class, 'index'])->name('masyarakat.index');
 Route::post('/registrasi', [MasyarakatController::class, 'store'])->name('masyarakat.store');
+
+// Route Login
+Route::get('/login', [MasyarakatController::class, 'showLogin'])->name('login');
+Route::post('/login', [MasyarakatController::class, 'login'])->name('login.process');
+Route::get('/logout', [MasyarakatController::class, 'logout'])->name('logout');
+
+// Route Halamana Lapor sampah (Hanya bisa diakses setelah jika sudah login session)
+Route::middleware(['checkMasyarakatSession'])->group(function () {
+    // halaman form laporan
+    Route::get('/lapor-sampah', [LaporanController::class, 'index'])->name('lapor.index');
+
+    // proses penyimpanan laporan
+    Route::post('/lapor-sampah', [LaporanController::class, 'store'])->name('lapor.store');
+
+    // Route::get('/lapor-sampah', function () {
+    //     return view('lapor_sampah'); // Ini file yang akan kita buat selanjutnya
+    // })->name('lapor.index');
+});
