@@ -70,4 +70,14 @@ class LaporanController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+
+    public function history()
+    {
+        // Mengambil laporan milik user yang login berdasarkan NIK di session
+        $riwayat = Laporan::where('nik_pelapor', session('user_nik'))
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('riwayat_laporan', ['riwayat' => $riwayat]);
+    }
 }

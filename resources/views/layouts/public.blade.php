@@ -45,15 +45,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#panduan">Panduan</a></li>
+                    @if(session('login_masyarakat'))
+                    <li class="nav-item"><a class="nav-link" href="{{ route('lapor.history') }}">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('lapor.index') }}">Buat Laporan</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger px-x">Keluar</button>
+                        </form>
+                    </li>
+
+                    @else
+                    {{-- Tombol Login & Daftar Sebelumnya --}}
+                    @endif
+
+                    <!-- <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#panduan">Panduan</a></li>
                     <li class="nav-item ms-lg-3">
                         <a class="nav-link btn btn-outline-success px-4 me-2"
                             href="{{ route('login') }}">Masuk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-success text-white px-4 shadow-sm" href="{{ route('masyarakat.index') }}">Daftar</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
