@@ -39,12 +39,14 @@
                                 <p>Dashboard</p>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('admin.peta') }}" class="nav-link {{ request()->is('admin/peta-laporan') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-map-marked-alt"></i>
                                 <p>Peta Sebaran</p>
                             </a>
                         </li>
+
                         <li class="nav-header">ANALISIS SPK</li>
                         <li class="nav-item">
                             <a href="{{ route('admin.vikor') }}" class="nav-link {{ request()->is('admin/perhitungan-vikor') ? 'active' : '' }}">
@@ -52,6 +54,21 @@
                                 <p>Metode VIKOR</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.wp') }}" class="nav-link {{ request()->is('admin/perhitungan-wp') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-balance-scale"></i>
+                                <p>Metode WP</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.perbandingan') }}" class="nav-link {{ request()->is('admin/perbandingan-metode') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-balance-scale"></i>
+                                <p>Perbandingan Metode</p>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
             </div>

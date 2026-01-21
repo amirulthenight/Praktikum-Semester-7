@@ -21,7 +21,7 @@ Route::get('/login', [MasyarakatController::class, 'showLogin'])->name('login');
 Route::post('/login', [MasyarakatController::class, 'login'])->name('login.process');
 Route::get('/logout', [MasyarakatController::class, 'logout'])->name('logout');
 
-// Route Halamana Lapor sampah (Hanya bisa diakses setelah jika sudah login session)
+// Route Halaman Lapor sampah (Hanya bisa diakses setelah jika sudah login session)
 // middelware disini
 Route::middleware(['checkMasyarakatSession'])->group(function () {
     // halaman form laporan
@@ -38,7 +38,22 @@ Route::middleware(['checkMasyarakatSession'])->group(function () {
     Route::get('/admin/peta-laporan', [AdminController::class, 'peta'])->name('admin.peta');
     Route::get('/admin/perhitungan-vikor', [AdminController::class, 'vikor'])->name('admin.vikor');
 
-    // Route::get('/lapor-sampah', function () {
-    //     return view('lapor_sampah'); // Ini file yang akan kita buat selanjutnya
-    // })->name('lapor.index');
+    // Route untuk mengambil data JSON laporan berdasarkan ID
+    Route::get('/admin/laporan/{id}', [AdminController::class, 'detailLaporan'])->name('admin.detailLaporan');
+
+    // Route untuk update status laporan (Perbaikan Error 404)
+    Route::post('/admin/laporan/update-status/{id}', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
+
+    // Route WP
+    Route::get('/admin/perhitungan-wp', [AdminController::class, 'wp'])->name('admin.wp');
+
+    // Route Perbandingan
+    Route::get('/admin/perbandingan-metode', [AdminController::class, 'perbandingan'])->name('admin.perbandingan');
+
+
+
+    //
+    Route::get('/lapor-sampah', function () {
+        return view('lapor_sampah'); // Ini file yang akan kita buat selanjutnya
+    })->name('lapor.index');
 });
